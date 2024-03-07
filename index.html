@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Inventory Management System</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.pinimg.com/originals/77/41/50/774150c3b3cc01d8cc8fe40b2265dec6.jpg');
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #1e88e5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #1e88e5;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      background-color: #d32f2f;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+
+    p {
+      margin-bottom: 5px;
+      color: #333;
+    }
+  
+    @media (max-width: 600px) {
+      .container {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Inventory Mangaement System</h1>
+    <form action="/" method="POST" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="productId">productId:</label>
+        <input type="number" id="productId" name="productId" required>
+      </div>
+      <div class="form-group">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required>
+      </div>
+      <div class="form-group">
+        <label for="productDescription">Product Description:</label>
+        <input type="text" id="productDescription" name="productDescription" required>
+      </div>
+      <div class="form-group">
+        <label for="productCategory">Product Category:</label>
+        <input type="text" id="productCategory" name="productCategory" required>
+      </div>
+      <div class="form-group">
+        <label for="productBrand">Product Brand:</label>
+        <input type="text" id="productBrand" name="productBrand" required>
+      </div>
+      <div class="form-group">
+        <label for="productManufracturer">Product Manufracturer:</label>
+        <input type="text" id="productManufracturer" name="productManufracturer" required>
+      </div>
+      <div class="form-group">
+        <label for="unitOfMeasure">unit Of Measure:</label>
+        <input type="number" id="unitOfMeasure" name="unitOfMeasure" required>
+      </div>
+      <div class="form-group">
+        <label for="costPrice">cost Price:</label>
+        <input type="number" id="costPrice" name="costPrice" required>
+      </div>
+      <div class="form-group">
+        <label for="sellingprice">sellingprice:</label>
+        <input type="number" id="sellingprice" name="sellingprice" required>
+      </div>
+      <button type="Add Product">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var productId = document.getElementById('productId').value;
+      var productName = document.getElementById('productName').value;
+      var productDescription = document.getElementById('productDescription').value;
+      var productCategory = document.getElementById('productCategory').value;
+      var productBrand = document.getElementById('productBrand').value;
+      var productManufracturer = document.getElementById('productManufracturer').value;
+      var unitOfMeasure = document.getElementById('unitOfMeasure ').value;
+      var costPrice = document.getElementById('costPrice').value;
+      var sellingprice = document.getElementById('sellingprice').value;
+
+      // Validation rules
+      var nameRegex = /^[A-Za-z]+$/;
+      //var locationRegex = /^[A-Za-z\s]+$/;
+      //var ageRegex = /^[0-9]+$/;
+      //var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var numRegex = /^[0-9]{10}$/;
+
+      if (!numRegex.test(productId)) {
+        alert('Product Id should contain only Numbers.');
+        return false;
+      }
+
+      if (!nameRegex.test(productName)) {
+        alert('Product Name should contain only String.');
+        return false;
+      }
+
+      if (!nameRegex.test(productDescription)) {
+        alert('Product Description should contain only String.');
+        return false;
+      }
+
+      if (!nameRegex.test(productCategory)) {
+        alert('Product Category should contain only String.');
+        return false;
+      }
+
+      if (!nameRegex.test(productBrand)) {
+        alert('Product Brand should contain only String.');
+        return false;
+      }
+
+      if (!nameRegex.test(productManufracturer)) {
+        alert('Product Manufracturer should contain only String.');
+        return false;
+      }
+
+      if (!numRegex.test(unitOfMeasure )) {
+        alert('UnitOf Measure must be integer');
+        return false;
+      }
+      if (!numRegex.test(costPrice )) {
+        alert('costPrice must be integer');
+        return false;
+      }
+      if (!numRegex.test( sellingprice)) {
+        alert('sellingprice must be integer');
+        return false;
+      }
+      
+
+      // Add more validation rules as needed
+
+      // Return true if the form is valid, otherwise return false
+      return true;
+    }
+  </script>
+</body>
+
+</html>
